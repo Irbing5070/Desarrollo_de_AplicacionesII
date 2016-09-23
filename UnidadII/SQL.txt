@@ -1,0 +1,37 @@
+Tabla CREDITO
+
+CREATE TABLE public.creditos
+(
+    id_credito integer NOT NULL DEFAULT nextval('creditos_id_credito_seq'::regclass),
+    nombre character varying(30) COLLATE "default".pg_catalog,
+    fecha_expedicion character varying(30) COLLATE "default".pg_catalog,
+    tipo character varying(50) COLLATE "default".pg_catalog,
+    CONSTRAINT id_credito PRIMARY KEY (id_credito)
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.creditos
+    OWNER to postgres;
+
+
+Tabla USUARIOS
+
+CREATE TABLE public.estudiantes
+(
+    id_estudiante integer NOT NULL DEFAULT nextval('estudiantes_id_estudiante_seq'::regclass),
+    nombre character varying(20) COLLATE "default".pg_catalog,
+    apellidos character varying(30) COLLATE "default".pg_catalog,
+    curso character varying(30) COLLATE "default".pg_catalog,
+    anio integer,
+    CONSTRAINT id_estudiante PRIMARY KEY (id_estudiante)
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.estudiantes
+    OWNER to postgres;
