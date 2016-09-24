@@ -79,7 +79,7 @@ public class EstudianteDAOImp implements EstudianteDAO{
                 resultSet.getString("apellidos"),
                 resultSet.getString("curso"),
                 resultSet.getInt("anio"));
-                estudiantes.add(estudiante); //a la lista se le agregan los estudiantes que se le acaban de agregar datos
+                estudiantes.add(estudiante);
             }
             resultSet.close();
             statement.close();

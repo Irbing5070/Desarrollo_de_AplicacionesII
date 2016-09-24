@@ -75,7 +75,7 @@ public class CreditoDAOImp implements CreditoDAO{
                 resultSet.getString("nombre"),
                 resultSet.getString("fecha_expedicion"),
                 resultSet.getString("tipo"));
-                creditos.add(credito); //a la lista se le agregan los estudiantes que se le acaban de agregar datos
+                creditos.add(credito);
             }
             resultSet.close();
             statement.close();

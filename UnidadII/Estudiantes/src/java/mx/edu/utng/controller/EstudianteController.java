@@ -25,11 +25,11 @@ public class EstudianteController extends HttpServlet {
         String forward = "";
         String action = request.getParameter("action");
         if (action.equalsIgnoreCase("borrar")){
-            forward = LISTA_ESTUDIANTES; //va a cambiar, ya uqe borro los estudiantes con id especifico
+            forward = LISTA_ESTUDIANTES;
             int idEstudiante = Integer.parseInt(
             request.getParameter("idEstudiante"));
             dao.borrarEstudiante(idEstudiante);
-            request.setAttribute("estudiantes", dao.desplegarEstudiantes()); //Listar nuevamente sin el valor borrado
+            request.setAttribute("estudiantes", dao.desplegarEstudiantes());
         }else if (action.equalsIgnoreCase("cambiar")){
             forward = AGREGAR_O_CAMBIAR;
              int idEstudiante = Integer.parseInt(
@@ -43,7 +43,7 @@ public class EstudianteController extends HttpServlet {
             request.setAttribute("estudiantes", dao.desplegarEstudiantes());
         }
         
-        RequestDispatcher view = request.getRequestDispatcher(forward); //Se va adeterminada vista o a otra
+        RequestDispatcher view = request.getRequestDispatcher(forward);
         view.forward(request, response); 
     }
 
