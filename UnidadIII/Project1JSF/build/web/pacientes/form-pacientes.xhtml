@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>#{str.formTitle2}</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="/templates/template.xhtml">
+            <ui:define name ="contenido">
+                <h2>#{str.formHeader2}</h2>
+                <p:fieldset legend="#{str.legendForm2}">
+                    <h:form>
+                        <h:panelGrid columns="1">
+                            <p:inputText placeholder="#{str.namePrompt2}"
+                                         value="#{pacienteBean.paciente.nombrePaciente}"></p:inputText>
+                            <p:inputText placeholder="#{str.apellidoPrompt}"
+                                         value="#{pacienteBean.paciente.apellidosPaciente}"></p:inputText>
+                                         <p:inputText placeholder="#{str.passwordPrompt}"
+                                                      value="#{pacienteBean.paciente.contrasenia}" type="password"></p:inputText>
+                                        <p:selectOneMenu value="#{pacienteBean.paciente.doctor.idDoctor}">
+                                            <f:selectItems value="#{pacienteBean.doctores}" var="d"
+                                                               itemLabel="#{d.nombre}" itemValue="#{d.idDoctor}"></f:selectItems>
+                                        </p:selectOneMenu>
+                        </h:panelGrid>
+                        <p:commandButton value="#{str.buttonSave}"
+                                         action="#{pacienteBean.guardar()}"></p:commandButton>
+                        <p:commandButton value="#{str.buttonDelete}"
+                                         action="#{pacienteBean.eliminar()}"></p:commandButton>
+                        <p:commandButton value="#{str.buttonCancel}"
+                                         action="#{pacienteBean.cancelar()}"></p:commandButton>
+                    </h:form>
+                </p:fieldset>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
