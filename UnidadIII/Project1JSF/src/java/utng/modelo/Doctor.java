@@ -28,7 +28,7 @@ public class Doctor implements Serializable{
     @Column(length = 30)
     private String nombre;
     private String especialidad;
-    private String cedula_profesional;
+    private String cedulaProfesional;
     
     public Doctor(){
         this.idDoctor = 0L;
@@ -58,12 +58,13 @@ public class Doctor implements Serializable{
         this.especialidad = especialidad;
     }
 
-    public String getCedula_profesional() {
-        return cedula_profesional;
+    public String getCedulaProfesional() {
+        return cedulaProfesional;
     }
 
-    public void setCedula_profesional(String cedula_profesional) {
-        this.cedula_profesional = cedula_profesional;
+    public void setCedulaProfesional(String cedulaProfesional) {
+        this.cedulaProfesional = cedulaProfesional;
     }
+    
 
 }
