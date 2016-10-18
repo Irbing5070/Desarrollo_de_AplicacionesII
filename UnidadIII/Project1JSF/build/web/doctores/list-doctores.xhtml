@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>#{str.doctorListTitle}</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="/templates/template.xhtml">
+            <ui:define name="contenido">
+                <h1>#{str.doctorListTitle}</h1>
+                <h:form>
+                    <p:commandButton value="#{str.buttonAdd}"
+                                     action="#{doctorBean.iniciar()}"></p:commandButton>
+                </h:form>
+                <p:dataTable value="#{doctorBean.doctores}" var="d">
+                    <p:column headerText="#{str.action}">
+                        <h:form>
+                            <p:commandButton value="#{str.buttonEdit}"
+                                             action="#{doctorBean.editar(d)}"></p:commandButton>
+                        </h:form>
+                    </p:column>
+                    <p:column headerText="#{str.doctorNameHeader}">
+                        <p:outputLabel value="#{d.nombre}"></p:outputLabel>
+                    </p:column>
+                    <p:column headerText="#{str.doctorEspecialidadHeader}">
+                        <p:outputLabel value="#{d.especialidad}"></p:outputLabel>
+                    </p:column>
+                    <p:column headerText="#{str.doctorCedulaHeader}">
+                        <p:outputLabel value="#{d.cedula_profesional}"></p:outputLabel>
+                    </p:column>
+                </p:dataTable>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
